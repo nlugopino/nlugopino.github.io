@@ -1,0 +1,64 @@
+.carousel-caption{
+  background-color: rgba(0, 0, 0, .5);
+  right: 0;
+  left: 0;
+}
+
+.carousel-caption h4{
+  color: white;
+  opacity: 1;
+}
+
+.img-contenedor img {
+  transition:all .9s ease;
+  width:100%;
+}
+
+.img-contenedor:hover img {
+  transform:scale(1.25);
+}
+
+.img-contenedor {
+	overflow:hidden;
+}
+
+@media (min-width: 992px) {
+  .animate {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  100% {
+    transform:translateY(0rem);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: transform;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+.slideIn {
+  animation-name: slideIn;
+}

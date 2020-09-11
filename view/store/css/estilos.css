@@ -1,0 +1,16 @@
+.off {
+	position: absolute;
+	top: 100px;
+	left: 5px;
+	width: 50px;
+}
+
+.stroke {
+	-webkit-text-fill-color: #f0ad4e;
+	-webkit-text-stroke: 2px #DA9D47;
+}
+
+.stroke2 {
+	-webkit-text-fill-color: #4582ec;
+	-webkit-text-stroke: 1px #3868bd;
+}

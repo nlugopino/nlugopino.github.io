@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/theme-bootstrap-4/bootstrap-4.min.css">
+    <title>Compras</title>
+</head>
+
+<body style="background-image: url(../img/fondo.png);">
+    <!-- Contenedor para vue.js -->
+    <div id="app">
+        <!-- Barra de navegacion -->
+        <div class="sticky-top">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../img/logo.png" class="img-fluid" width="280px">
+                </a>
+                <a role="button" class="btn mx-0 px-0" data-toggle="modal" data-target="#modalcarro">
+                    <span class="badge p-1 text-primary font-weight-bold bg-light">{{items}}</span>
+                    <i class="fas fa-shopping-basket fa-2x text-white"></i>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse ml-md-5" id="navbarColor02">
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+                    <!-- Links redes sociales -->
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="servicios.html">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="../../../index.html"
+                                title="Volver a la presentación">
+                                <i class="fas fa-home fa-lg"></i>
+                            </a>
+                        </li>
+                        <div class="d-flex justify-content-center ml-5">
+                            <!-- Facebook -->
+                            <a class="nav-link" href="#" title="Facebook">
+                                <i class="fab fa-facebook fa-lg mr-3 text-white"></i>
+                            </a>
+                            <!--Instagram-->
+                            <a class="nav-link" href="#" title="Instagram">
+                                <i class="fab fa-instagram fa-lg mr-3 text-white"></i>
+                            </a>
+                            <!--WhatsApp-->
+                            <a class="nav-link" href="#" title="WhatApp">
+                                <i class="fab fa-whatsapp fa-lg mr-3 text-white"></i>
+                            </a>
+                        </div>
+                    </ul>
+                    <!-- Fin Links redes sociales -->
+                </div>
+            </nav>
+        </div>
+        <!-- Fin Barra de navegacion -->
+
+        <!-- Cuerpo de la pagina -->
+        <div class="container shadow bg-white px-0 my-3">
+
+            <!-- Carro de compras-->
+            <h4 class="py-3 text-center">Carrito de compras <i class="fas fa-shopping-basket text-success"></i></h4>
+            <div class="row p-0 m-0">
+                <div class="col-md-7 mb-4">
+                    <div class="row row-cols-3 mx-1 text-center">
+                        <div class="col-3 border bg-success">
+                            <h6 class="text-white">Img</h6>
+                        </div>
+                        <div class="col-6 border bg-success">
+                            <h6 class="text-white">Producto</h6>
+                        </div>
+                        <div class="col-3 border bg-success">
+                            <h6 class="text-white">Subtotal</h6>
+                        </div>
+                    </div>
+                    <div class="row row-cols-3 mx-1" v-for="(car,index) in carrodecompras">
+                        <div class="col-3 border d-flex align-items-center">
+                            <div>
+                                <a :href="car.img"><img :src="car.img" class="img-fluid"></a>
+                            </div>
+                        </div>
+                        <div class="col-6 border pt-md-3 text-left">
+                            <h6>{{car.nombre}}</h6>
+                            <div class="text-left my-2">
+                                <select @change="calcularprecio(index)" v-model="car.cantidad">
+                                    <option :value="num" v-for="num in car.stock">{{num}}</option>
+                                </select>
+                                <small>Disponibles</small>
+                            </div>
+                            <div class="text-left">
+                                <a type="button" class="text-primary" @click="quitardelcarro(index)"
+                                    title="Quitar del carrito">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                                <a type="button" class="text-danger mx-1" title="Agregar a favorito"
+                                    @click="favorito(index)">
+                                    <i :id="'heart'+index" class="far fa-heart"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-3 border pt-md-3 text-right">
+                            <small class="text-muted small" v-if="car.preciold>0"><del>${{car.preciold}}</del>
+                                -15%</small>
+                            <h6>${{car.precio}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 pt-3">
+                    <h6 class="text-left">Resumen:</h6>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr class="text-center font-weight-bold">
+                                <td>Producto</td>
+                                <td>Uns</td>
+                                <td>Subtotal</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(car,index) in carrodecompras">
+                                <td class="text-left">{{car.nombre}}</td>
+                                <td class="text-right">{{car.cantidad}}</td>
+                                <td class="text-right">${{car.precio}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h6 class="text-right my-3">Total ${{subtotalcarro}}</h6>
+                    <button class="btn btn-primary btn-block mb-3" data-toggle="collapse" data-target="#formcompra"
+                        aria-expanded="false" aria-controls="formcompra">
+                        Continuar con la compra
+                    </button>
+                </div>
+            </div>
+            <!-- Fin Carro de compras-->
+
+            <!-- Formulario de compra -->
+            <div class="collapse mx-4 border-0" id="formcompra">
+                <div class="py-3">
+                    <div class="accordion" id="adminpasos">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn text-primary font-weight-bold" type="button"
+                                        data-toggle="collapse" data-target="#paso1" aria-expanded="true"
+                                        aria-controls="paso1">
+                                        <i class="fas fa-user-tag text-success"></i> Datos personales y de envió
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="paso1" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#adminpasos">
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h6 class="text-center">Datos personales</h6>
+                                                <div class="form-group row">
+                                                    <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control col-md-8" id="nombre"
+                                                            v-model="datospersonales.nombre">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="telefono"
+                                                        class="col-sm-3 col-form-label">Teléfono</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="number" class="form-control col-md-8" id="telefono"
+                                                            v-model="datospersonales.telefono">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="correo" class="col-sm-3 col-form-label">Correo</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="email" class="form-control col-md-8" id="correo"
+                                                            v-model="datospersonales.correo">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6 class="text-center">Datos de envió</h6>
+                                                <div class="form-group row">
+                                                    <label for="direccion"
+                                                        class="col-sm-3 col-form-label">Dirección</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control col-md-8" id="direccion"
+                                                            v-model="datospersonales.direccion">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="barrio" class="col-sm-3 col-form-label">Barrio</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control col-md-8" id="barrio"
+                                                            v-model="datospersonales.barrio">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="ciudad" class="col-sm-3 col-form-label">Ciudad</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control col-md-8" id="ciudad"
+                                                            v-model="datospersonales.ciudad">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <small class="text-muted">Puede cambiar estos datos por defecto para una
+                                                mejor simulación. Su información no será utilizada ya que este proceso
+                                                es una demostración y no se está manejando tráfico de datos
+                                                personales.</small>
+                                        </div>
+                                        <div class="my-2 text-right">
+                                            <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                                data-target="#paso2" aria-expanded="false"
+                                                aria-controls="paso2">Continuar <i
+                                                    class="fas fa-arrow-circle-right"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn text-primary font-weight-bold" type="button"
+                                        data-toggle="collapse" data-target="#paso2" aria-expanded="false"
+                                        aria-controls="paso2">
+                                        <i class="fas fa-tasks text-success"></i> Políticas de envío
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="paso2" class="collapse" aria-labelledby="headingTwo" data-parent="#adminpasos">
+                                <div class="card-body">
+                                    <ol>
+                                        <li class="text-justify">Nuestra promesa de entrega para nuestros productos es
+                                            de 3 a 7 días hábiles
+                                            para todos los destinos.</li>
+                                        <li class="text-justify">Si el pago de tu compra es confirmado de lunes a
+                                            viernes, el primer día
+                                            hábil es el día en que recibes la confirmación del pago y desde ese día
+                                            tienes el tiempo de entrega.</li>
+                                        <li class="text-justify">Despachos:
+                                            Lunes a viernes de 7:30 am a 6:30 pm
+                                            Sábados de 7:30 am a 2:00 pm.
+                                            Domingos y festivos no se realizan entregas</li>
+                                        <li class="text-justify">
+                                            El envío de los pedidos es gratuito a todo el país por compras iguales o
+                                            superiores a $150.000. Para compras inferiores a éste valor, el costo del
+                                            envío será determinado en cada caso particular
+                                            dependiendo del destino, peso y volumen del paquete. Este valor se calculará
+                                            en el proceso de la compra y te será informado en el momento de la
+                                            liquidación de la orden, antes de que realices el pago.</li>
+                                    </ol>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="acepto" id="acepto">
+                                        <label class="form-check-label" for="acepto">
+                                            Acepto los términos de envió.
+                                        </label>
+                                    </div>
+                                    <div class="my-2 text-right">
+                                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                            data-target="#paso3" aria-expanded="false" aria-controls="paso3">Continuar
+                                            <i class="fas fa-arrow-circle-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn text-primary font-weight-bold" type="button"
+                                        data-toggle="collapse" data-target="#paso3" aria-expanded="false"
+                                        aria-controls="paso3">
+                                        <i class="fas fa-file-invoice-dollar text-success"></i> Facturación
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="paso3" class="collapse" aria-labelledby="headingThree"
+                                data-parent="#adminpasos">
+                                <div class="card-body">
+                                    <h6 class="text-center">Factura
+                                        <i class="fas fa-file-invoice-dollar text-success"></i>
+                                    </h6>
+                                    <div class="row row-cols-2 small my-2 py-2 bg-light border rounded">
+                                        <div class="col">
+                                            <strong>Nombre:</strong> {{datospersonales.nombre}} <br>
+                                            <strong>Teléfono:</strong> {{datospersonales.telefono}} <br>
+                                            <strong>Correo:</strong> {{datospersonales.correo}}<br>
+                                        </div>
+                                        <div class="col">
+                                            <strong>Dirección:</strong> {{datospersonales.direccion}} <br>
+                                            <strong>Barrio:</strong> {{datospersonales.barrio}} <br>
+                                            <strong>Ciudad:</strong> {{datospersonales.ciudad}}<br>
+                                        </div>
+                                    </div>
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
+                                            </tr>
+                                            </td>
+                                            </tr>
+                                            <tr class="text-center font-weight-bold">
+                                                <td>Producto</td>
+                                                <td>Uns</td>
+                                                <td>Valor</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(car,index) in carrodecompras">
+                                                <td class="text-left">{{car.nombre}}</td>
+                                                <td class="text-right">{{car.cantidad}}</td>
+                                                <td class="text-right">${{car.precio}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer text-right">
+                                    <h6>Subtotal ${{subtotalcarro}}</h6>
+                                    <h6>Envió ${{envio}}</h6>
+                                    <h6>Total ${{totalcarro}}</h6>
+                                </div>
+                                <div class="m-3 text-right">
+                                    <button class="btn btn-primary" type="button" @click="finalizarcompra">Continuar
+                                        <i class="fas fa-arrow-circle-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Formulario de compra -->
+        </div>
+        <!-- Fin Cuerpo de la pagina -->
+
+        <!-- Footer -->
+        <footer style="background-color: #f8f9fa;">
+            <!-- Footer Links -->
+            <div class="container-fluid">
+                <!-- Grid row-->
+                <div class="row text-center d-flex justify-content-center pt-4 mb-3" style="background-color: #02b875;">
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="../index.html" class="text-white">Inicio</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="productos.html" class="text-white">Productos</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="servicios.html" class="text-white">Servicios</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="contacto.html" class="text-white">Contacto</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row-->
+
+                <!-- Grid row-->
+                <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+                    <!-- Grid column -->
+                    <div class="col-md-8 col-12 mt-3">
+                        <p class="text-center lead">¿Cómo comprar?</p>
+                        <p class="lead text-justify">
+                            Comprar es muy sencillo, debes agregar al carrito de compra el producto que deseas, luego
+                            elegir
+                            el
+                            método de pago (puedes elegir entre tarjeta de débito, crédito, consignación bancaria o pago
+                            vía
+                            Efecty
+                            o Baloto) y ¡listo!, tu pedido será entregado de 3 y 7 días a nivel nacional.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row-->
+
+                <hr class="rgba-white-light mb-4" style="margin: 0 15%;">
+
+                <!-- Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-12">
+                        <div class="mb-5 d-flex justify-content-center">
+                            <!-- Facebook -->
+                            <a class="fb-ic" href="#" title="Facebook">
+                                <i class="fab fa-facebook fa-2x mr-4 text-success"></i>
+                            </a>
+                            <!--Instagram-->
+                            <a class="ins-ic" href="#" title="Instagram">
+                                <i class="fab fa-instagram fa-2x mr-4 text-success"></i>
+                            </a>
+                            <!--WhatsApp-->
+                            <a class="wha-ic" href="#" title="WhatApp">
+                                <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row-->
+            </div>
+            <!-- Footer Links -->
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3" style="background-color: #E3E3E3;">© 2020 Copyright:
+                <a href="https://nlugopino.github.io/"> Nelson Andres Lugo Pino</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </div>
+    <!-- Fin Contenedor para vue.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+        </script>
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+
+</html>

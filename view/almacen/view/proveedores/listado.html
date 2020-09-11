@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="../../css/estilos.css">
+    <title>Listado de proveedores</title>
+</head>
+
+<body>
+    <div id="app" class="row container-fluid bg-primary m-0 p-0 w-100">
+        <!-- Menú lateral -->
+        <div class="col-md-3">
+            <!-- Barra de navegacion -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse mt-3" id="menu">
+                    <!-- Menu de navegacion -->
+                    <div class="accordion px-4" id="barramenu">
+                        <div class="card">
+                            <div class="card-header p-2 text-center">
+                                <a href="../../index.html" class="btn btn-link text-success" type="button"
+                                    style="text-decoration: none;">
+                                    <i class="fas fa-cash-register fa-2x"></i> <span class="h3">POS</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link text-success" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="fas fa-user fa-lg"></i> Clientes
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="../clientes/listado.html">
+                                            <i class="fas fa-users"></i> Listar clientes
+                                        </a>
+                                        <a class="nav-link text-primary" href="../clientes/nuevo.html">
+                                            <i class="fas fa-user-plus"></i> Nuevo cliente
+                                        </a>
+                                        <a class="nav-link text-primary" href="../clientes/editar.html">
+                                            <i class="fas fa-user-edit"></i> Editar cliente
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <i class="fas fa-box-open fa-lg"></i> Productos
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="../productos/listado.html">
+                                            <i class="fas fa-boxes"></i> Listar Productos
+                                        </a>
+                                        <a class="nav-link text-primary" href="../productos/nuevo.html">
+                                            <i class="fas fa-folder-plus"></i> Nuevo Producto
+                                        </a>
+                                        <a class="nav-link text-primary" href="../productos/editar.html">
+                                            <i class="fas fa-edit"></i> Editar Producto
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingProve">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link text-success" type="button" data-toggle="collapse"
+                                        data-target="#proveedores" aria-expanded="true" aria-controls="proveedores">
+                                        <i class="fas fa-user-tie fa-lg"></i> Proveedores
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="proveedores" class="collapse" aria-labelledby="headingProve"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="../proveedores/listado.html">
+                                            <i class="fas fa-users"></i> Listar proveedores
+                                        </a>
+                                        <a class="nav-link text-primary" href="../proveedores/nuevo.html">
+                                            <i class="fas fa-user-plus"></i> Nuevo proveedor
+                                        </a>
+                                        <a class="nav-link text-primary" href="../proveedores/editar.html">
+                                            <i class="fas fa-user-edit"></i> Editar proveedor
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        <i class="fas fa-boxes fa-lg"></i> Inventario
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <a class="nav-link text-primary" href="../inventario/devoluciones.html">
+                                        <i class="fas fa-people-carry"></i> Devoluciones
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="facturas">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#menufacturas" aria-expanded="false" aria-controls="menufacturas">
+                                        <i class="fas fa-shopping-cart fa-lg"></i> Compras
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="menufacturas" class="collapse" aria-labelledby="headingFor"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="../compras/nuevo.html">
+                                            <i class="fas fa-cart-plus"></i> Nueva Compra
+                                        </a>
+                                        <a class="nav-link text-primary" href="../compras/listado.html">
+                                            <i class="fas fa-book"></i> Listado de compras
+                                        </a>
+                                        <a class="nav-link text-primary" href="../compras/cuentas-por-pagar.html">
+                                            <i class="fas fa-file-invoice-dollar"></i> Cuentas por Pagar
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFor">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
+                                        <i class="fas fa-file-invoice-dollar fa-lg"></i> Facturas
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFor" class="collapse" aria-labelledby="headingFor"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="../facturas/listado.html">
+                                            <i class="fas fa-book"></i> Listado de facturas
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSix">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        <i class="fas fa-cash-register fa-lg"></i> Movimiento de caja
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="#">
+                                            <i class="fas fa-door-open"></i> Apertura de caja
+                                        </a>
+                                        <a class="nav-link text-primary" href="#">
+                                            <i class="fas fa-door-closed"></i> Cierre de caja
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header p-2 text-center">
+                                <a href="../../../../index.html" class="btn btn-link text-success" type="button"
+                                    style="text-decoration: none;">
+                                    <i class="fas fa-home"></i> Ir a presentación
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Menu de navegacion -->
+                </div>
+            </nav>
+            <!-- Fin Barra de navegacion -->
+        </div>
+        <!-- Fin Menú lateral -->
+        <div class="col-md-9 bg-white">
+            <div class="container mt-3">
+                <h4 class="text-center mt-3 text-primary font-weight-bold">
+                    <i class="fas fa-users"></i> Listado de proveedores
+                </h4>
+                <div class="row row-cols-2 mt-4">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input type="text" class="form-control col-md-6" placeholder="Buscar" id="filtro">
+                        </div>
+                    </div>
+                    <div class="col text-right">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalnewproveedor">
+                            Nuevo <i class="fas fa-user-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive mt-3">
+                    <table id="tablacliente" class="table table-bordered table-sm text-center">
+                        <thead>
+                            <tr class="table-success">
+                                <th>Nit/Rut</th>
+                                <th>Nombre</th>
+                                <th>Teléfono</th>
+                                <th>Dirección</th>
+                                <th>Ciudad</th>
+                                <th>Correo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="filtrotr" v-for="pro in proveedores">
+                                <td>{{pro.nit}}</td>
+                                <td class="text-capitalize">{{pro.nombre}}</td>
+                                <td>{{pro.telefono}}</td>
+                                <td>{{pro.direccion}}</td>
+                                <td>{{pro.ciudad}}</td>
+                                <td>{{pro.correo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Modal crear proveedor -->
+        <div class="modal fade" id="modalnewproveedor" tabindex="-1" role="dialog"
+            aria-labelledby="modalnewproveedorLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="modalnewproveedorLabel">
+                            <i class="fas fa-user-plus"></i> Nuevo Proveedor
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form v-on:submit.prevent="addnewproveedor">
+                        <div class="modal-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nit">Nit/Rut</label>
+                                    <input type="text" class="form-control" id="nit" v-model="addproveedores.nit"
+                                        required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="Nombre">Nombre</label>
+                                    <input type="text" class="form-control" id="Nombre" v-model="addproveedores.nombre"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="number" class="form-control" id="telefono"
+                                        v-model="addproveedores.telefono" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="Correo">Correo</label>
+                                    <input type="email" class="form-control" id="Correo" v-model="addproveedores.correo"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="direccion">Dirección</label>
+                                    <input type="text" class="form-control" id="direccion"
+                                        v-model="addproveedores.direccion" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="Ciudad">Ciudad</label>
+                                    <input type="text" class="form-control" id="Ciudad" v-model="addproveedores.ciudad"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar <i
+                                    class="far fa-window-close"></i></button>
+                            <button type="submit" class="btn btn-success">Guardar <i class="far fa-save"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal crear proveedor -->
+    </div>
+    <!-- Footer -->
+    <footer style="background-color: #3E5770;">
+        <!-- Footer Elements -->
+        <div class="container">
+            <div class="mb-3 pt-5 d-flex justify-content-center">
+                <!-- Facebook -->
+                <a class="text-white">
+                    <i class="fab fa-facebook-f mx-4 fa-2x"> </i>
+                </a>
+                <!--Instagram-->
+                <a class="text-white">
+                    <i class="fab fa-instagram mx-4 fa-2x"> </i>
+                </a>
+                <!--Pinterest-->
+                <a class="text-white">
+                    <i class="fab fa-whatsapp mx-4 fa-2x"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Footer Elements -->
+        <!-- Copyright -->
+        <div class="text-center text-success py-3">© 2020 Copyright:
+            <a class="text-white" href="https://nlugopino.github.io/"> Nelson Andres Lugo Pino</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="../../js/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../../js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#filtro").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tablacliente #filtrotr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

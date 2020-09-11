@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>POS</title>
+</head>
+
+<body>
+    <div id="app" class="row container-fluid bg-primary m-0 p-0 w-100">
+        <!-- Menú lateral -->
+        <div class="col-md-3">
+            <!-- Barra de navegacion -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse mt-3" id="menu">
+                    <!-- Menu de navegacion -->
+                    <div class="accordion px-4" id="barramenu">
+                        <div class="card">
+                            <div class="card-header p-2 text-center">
+                                <a href="index.html" class="btn btn-link text-success" type="button"
+                                    style="text-decoration: none;">
+                                    <i class="fas fa-cash-register fa-2x"></i> <span class="h3">POS</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link text-success" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="fas fa-user fa-lg"></i> Clientes
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="view/clientes/listado.html">
+                                            <i class="fas fa-users"></i> Listar clientes
+                                        </a>
+                                        <a class="nav-link text-primary" href="view/clientes/nuevo.html">
+                                            <i class="fas fa-user-plus"></i> Nuevo cliente
+                                        </a>
+                                        <a class="nav-link text-primary" href="view/clientes/editar.html">
+                                            <i class="fas fa-user-edit"></i> Editar cliente
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <i class="fas fa-box-open fa-lg"></i> Productos
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="view/productos/listado.html">
+                                            <i class="fas fa-boxes"></i> Listar Productos
+                                        </a>
+                                        <a class="nav-link text-primary" href="view/productos/nuevo.html">
+                                            <i class="fas fa-folder-plus"></i> Nuevo Producto
+                                        </a>
+                                        <a class="nav-link text-primary" href="view/productos/editar.html">
+                                            <i class="fas fa-edit"></i> Editar Producto
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingProve">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link text-success" type="button" data-toggle="collapse"
+                                        data-target="#proveedores" aria-expanded="true" aria-controls="proveedores">
+                                        <i class="fas fa-user-tie fa-lg"></i> Proveedores
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="proveedores" class="collapse" aria-labelledby="headingProve"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="view/proveedores/listado.html">
+                                            <i class="fas fa-users"></i> Listar proveedores
+                                        </a>
+                                        <a class="nav-link text-primary" href="view/proveedores/nuevo.html">
+                                            <i class="fas fa-user-plus"></i> Nuevo proveedor
+                                        </a>
+                                        <a class="nav-link text-primary" href="view/proveedores/editar.html">
+                                            <i class="fas fa-user-edit"></i> Editar proveedor
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        <i class="fas fa-boxes fa-lg"></i> Inventario
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <a class="nav-link text-primary" href="view/inventario/devoluciones.html">
+                                        <i class="fas fa-people-carry"></i> Devoluciones
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="facturas">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#menufacturas" aria-expanded="false" aria-controls="menufacturas">
+                                        <i class="fas fa-shopping-cart fa-lg"></i> Compras
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="menufacturas" class="collapse" aria-labelledby="headingFor"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="view/compras/nuevo.html">
+                                            <i class="fas fa-cart-plus"></i> Nueva Compra
+                                        </a>
+                                        <a class="nav-link text-primary" href="view/compras/listado.html">
+                                            <i class="fas fa-book"></i> Listado de compras
+                                        </a>
+                                        <a class="nav-link text-primary" href="view/compras/cuentas-por-pagar.html">
+                                            <i class="fas fa-file-invoice-dollar"></i> Cuentas por Pagar
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFor">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseFor" aria-expanded="false" aria-controls="collapseFor">
+                                        <i class="fas fa-file-invoice-dollar fa-lg"></i> Facturas
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFor" class="collapse" aria-labelledby="headingFor"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="view/facturas/listado.html">
+                                            <i class="fas fa-book"></i> Listado de facturas
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingSix">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        <i class="fas fa-cash-register fa-lg"></i> Movimiento de caja
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
+                                data-parent="#barramenu">
+                                <div class="card-body px-0">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link text-primary" href="#">
+                                            <i class="fas fa-door-open"></i> Apertura de caja
+                                        </a>
+                                        <a class="nav-link text-primary" href="#">
+                                            <i class="fas fa-door-closed"></i> Cierre de caja
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header p-2 text-center">
+                                <a href="../../index.html" class="btn btn-link text-success" type="button"
+                                    style="text-decoration: none;">
+                                    <i class="fas fa-home"></i> Ir a presentación
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Menu de navegacion -->
+                </div>
+            </nav>
+            <!-- Fin Barra de navegacion -->
+        </div>
+        <!-- Fin Menú lateral -->
+
+        <!-- Cuerpo de la pagina -->
+        <div class="col-md-9 m-0 p-0">
+            <div class="row row-cols-2 m-0 p-2" style="background-color: #3E5770;">
+                <div class="col">
+                    <img src="img/logo.png" class="img-fluid" width="180px;">
+                </div>
+                <div class="col text-right pt-3">
+                    <a href="view/facturas/listado.html" type="button" class="text-white" title="Listado de facturas">
+                        <i class="fas fa-file-invoice-dollar fa-2x"></i>
+                    </a>
+                    <a href="" type="button" class="text-white ml-3" title="Estado de la caja" data-toggle="modal"
+                        data-target="#modalestadocaja">
+                        <i class="fas fa-cash-register fa-2x"></i>
+                    </a>
+                    <a href="view/inventario/devoluciones.html" type="button" class="text-white ml-3" title="Devoluciones">
+                        <i class="fas fa-people-carry fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="container bg-white py-4">
+                <div class="row row-cols-2 pb-0 mb-0">
+                    <div class="col-md-4 col-9 input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-barcode text-primary"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" id="codebarra" placeholder="Código"
+                            @keyup.enter="addposcodebarra" autofocus>
+                    </div>
+                    <div class="col-md-4 col-3">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalproducto"
+                            title="Buscar producto">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <form v-on:submit.prevent="addfactura">
+                    <div class="row">
+                        <!-- Lado producto factura -->
+                        <div class="card-body mt-3 pt-0 col-md-9">
+                            <h5 class="text-center text-primary">Productos agregados</h5>
+                            <div class="table-responsive" style="height:350px;overflow:auto;">
+                                <table class="table table-bordered table-sm text-center">
+                                    <thead class="table-success">
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Descripción</th>
+                                            <th style="width: 40px;">Uns</th>
+                                            <th>Cantidad</th>
+                                            <th>Precio</th>
+                                            <th>Subtotal</th>
+                                            <th>Opciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-spy="scroll" data-target="#barra">
+                                        <tr v-for="(poss,index) in pos">
+                                            <td>{{poss.codigo}}</td>
+                                            <td class="text-capitalize">{{poss.descripcion}}</td>
+                                            <td>{{poss.uns}}</td>
+                                            <td style="width: 65px;">
+                                                <input type="number" id="cantidad" maxlength="2"
+                                                    class="form-control form-control-sm text-center"
+                                                    title="Cantidad a vender" v-model="poss.cantidad"
+                                                    style="width: 65px;" @keyup="subtotalproductPOS(index)"
+                                                    @click="subtotalproductPOS(index)" min="1" :max="poss.canlimit"
+                                                    required>
+                                            </td>
+                                            <td style="width: 90px;">
+                                                ${{poss.venta}}
+                                            </td>
+                                            <td style="width: 90px;">
+                                                ${{poss.subtotal}}
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-link btn-sm text-danger"
+                                                    @click="quitarproductopos(index)">
+                                                    <i class="fas fa-trash-alt fa-lg"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h6 class="mt-3">Items: <strong>{{cantitempos}}</strong></h6>
+                        </div>
+                        <!-- Din Lado producto factura -->
+
+                        <!-- Lado inf factura -->
+                        <div class="card-body border-left mt-0 pt-0 col-md-3">
+                            <div class="form-group">
+                                <label>Fecha de factura</label>
+                                <div class="input-group mb-3 mt-2">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="far fa-calendar-alt text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <output type="text" class="form-control text-primary" title="Fecha de factura">
+                                        {{fechaactual}}
+                                    </output>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="mr-3">Cliente</label>
+                                <button class="btn btn-success btn-sm" type="button" title="Buscar cliente"
+                                    data-toggle="modal" data-target="#modalcliente">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <div class="input-group mb-3 mt-2">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <output type="text" class="form-control text-primary">
+                                        {{clientepos.nombre}}
+                                    </output>
+                                </div>
+                            </div>
+                            <div class="text-right text-primary border p-1 py-2">
+                                <h6>Subtotal ${{subtotalpos}}</h6>
+                                <h6 class="my-3">
+                                    <small class="text-muted" v-if="clientepos.descuento!=0">
+                                        -{{clientepos.descuento}}%
+                                    </small>
+                                    Descuento ${{descuentopos}}
+                                </h6>
+                                <h5 class="font-weight-bold border-top">Total ${{totalpos}}</h5>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label class="mr-3">Forma de pago</label>
+                                <div class="input-group mb-3 mt-2">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-funnel-dollar text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <select class="custom-select text-primary" v-model="clientepos.pago" required>
+                                        <option value="" selected disabled>Seleccione...</option>
+                                        <option value="Efectivo">Efectivo</option>
+                                        <option value="T. Debito">T. Debito</option>
+                                        <option value="T. Credito">T. Credito</option>
+                                        <option value="Sistecreido">Sistecreido</option>
+                                    </select>
+                                </div>
+                                <div
+                                    v-if="clientepos.pago=='T. Debito' || clientepos.pago=='T. Credito' || clientepos.pago=='Sistecreido'">
+                                    <label class="mr-3"># Recibo</label>
+                                    <div class="input-group mb-3 mt-2">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="far fa-credit-card text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control text-primary" v-model="clientepos.recibo"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-primary btn-block btn-lg m-0 rounded-0" type="button"
+                                    @click="cancelarpos">CANCELAR
+                                    <i class="far fa-times-circle"></i>
+                                </button>
+                                <button type="submit" class="btn btn-success btn-block btn-lg m-0 p-3 rounded-0">
+                                    FACTURAR
+                                    <i class="far fa-check-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Fin Lado inf factura -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Fin Cuerpo de la pagina -->
+
+        <!-- Modal Estado de caja -->
+        <div class="modal fade" id="modalestadocaja" tabindex="-1" role="dialog" aria-labelledby="modalestadocajaLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="modalestadocajaLabel">
+                            <i class="fas fa-cash-register"></i> Estado de la caja
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row border-bottom">
+                            <div class="form-group col-md-6">
+                                <label>Base incial</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-coins text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <output type="text"
+                                        class="form-control text-primary">{{tempfactura.factura}}</output>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-2 border-bottom">
+                            <div class="form-group col-md-6">
+                                <label>Efectivo</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-money-bill-alt text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <output type="text" class="form-control col-md-10 text-primary">
+                                        ${{efectivocaja}}
+                                    </output>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Tarjetas</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="far fa-credit-card text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <output type="text" class="form-control col-md-10 text-primary">
+                                        ${{tarjetacaja}}
+                                    </output>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-2 border-bottom">
+                            <div class="form-group col-md-6">
+                                <label>Sistecredito</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-comment-dollar text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <output type="text"
+                                        class="form-control text-primary">${{sistecreditoacaja}}</output>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-2">
+                            <div class="form-group col-md-6">
+                                <label>Total caja</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-hand-holding-usd text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <output type="text" class="form-control text-primary">${{totalacaja}}</output>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Atrás
+                            <i class="fas fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal Estado de caja -->
+
+        <!-- Modal buscar cliente -->
+        <div class="modal fade" id="modalcliente" tabindex="-1" role="dialog" aria-labelledby="modalclienteLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="modalclienteLabel">
+                            <i class="fas fa-users"></i> Listado de clientes
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row row-cols-2 mt-4">
+                            <div class="col-8">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control col-md-6" placeholder="Buscar"
+                                        id="filtroclien">
+                                </div>
+                            </div>
+                            <div class="col-4 text-right">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#modalnewcliente">
+                                    Nuevo <i class="fas fa-user-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-responsive mt-3">
+                            <table id="tablacliente" class="table table-bordered table-sm text-center">
+                                <thead>
+                                    <tr class="table-success">
+                                        <th>Documento</th>
+                                        <th>Nombre</th>
+                                        <th>Teléfono</th>
+                                        <th>Correo</th>
+                                        <th>Opción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="filtrotrclien" v-for="(cli,index) in clientes">
+                                        <td>{{cli.documento}}</td>
+                                        <td class="text-capitalize">{{cli.nombre}}</td>
+                                        <td>{{cli.telefono}}</td>
+                                        <td>{{cli.correo}}</td>
+                                        <td>
+                                            <button class="btn btn-link btn-sm text-primary" type="button"
+                                                title="Agregar usuario" @click="btn_addclientpos(index)">
+                                                <i class="fas fa-check-circle fa-lg"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Atrás
+                            <i class="fas fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal buscar cliente -->
+
+        <!-- Modal crear cliente -->
+        <div class="modal fade" id="modalnewcliente" tabindex="-1" role="dialog" aria-labelledby="modalnewclienteLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="modalnewclienteLabel">
+                            <i class="fas fa-user-plus"></i> Nuevo Cliente</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form v-on:submit.prevent="addnewclient">
+                        <div class="modal-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="Documento">Documento</label>
+                                    <input type="number" class="form-control" id="Documento"
+                                        v-model="addclient.documento" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="Nombre">Nombre</label>
+                                    <input type="text" class="form-control" id="Nombre" v-model="addclient.nombre"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="number" class="form-control" id="telefono" v-model="addclient.telefono"
+                                        required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="Correo">Correo</label>
+                                    <input type="email" class="form-control" id="Correo" v-model="addclient.correo"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group mb-0 col-md-4">
+                                    <label for="descuento">Descuento</label>
+                                    <select class="custom-select" v-model="addclient.descuento">
+                                        <option value="" selected>Seleccione...</option>
+                                        <option :value="num" v-for="num in 20">{{num}}%</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <small>Valido solo para usuario administrador o si el habilita esta opción.</small>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar <i
+                                    class="far fa-window-close"></i></button>
+                            <button type="submit" class="btn btn-success">Guardar <i class="far fa-save"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal crear cliente -->
+
+        <!-- Modal buscar producto -->
+        <div class="modal fade" id="modalproducto" tabindex="-1" role="dialog" aria-labelledby="modalproductoLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="modalproductoLabel">
+                            <i class="fas fa-boxes"></i> Listado de productos
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input type="text" class="form-control col-md-4" placeholder="Buscar" id="filtro">
+                        </div>
+                        <div class="table-responsive mt-3">
+                            <table id="tableUserList" class="table table-bordered table-sm text-center">
+                                <thead>
+                                    <tr class="table-success">
+                                        <th>Codigo</th>
+                                        <th>Descripción</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
+                                        <th>Opción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="myTableBody">
+                                    <tr id="filtrotr" v-for="(pro,index) in productos">
+                                        <td>{{pro.codigo}}</td>
+                                        <td class="text-capitalize">{{pro.descripcion}}</td>
+                                        <td>{{pro.stock}}</td>
+                                        <td>${{pro.venta}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm" title="Agregar"
+                                                @click="addproductPOS(index)" :disabled="pro.stock==0">
+                                                <i class="fas fa-cart-plus"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="col-md-12 text-center">
+                                <ul class="pagination pagination-lg pager" id="myPager"></ul>
+                                <small>
+                                    <span class="text-warning">*</span>
+                                    Los productos y precios mostrados en este listado no son
+                                    referentes a precios reales, son intuitivos para la simulación.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Atrás
+                            <i class="fas fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal buscar producto -->
+    </div>
+    <!-- Footer -->
+    <footer style="background-color: #3E5770;">
+        <!-- Footer Elements -->
+        <div class="container">
+            <div class="mb-3 pt-5 d-flex justify-content-center">
+                <!-- Facebook -->
+                <a class="text-white">
+                    <i class="fab fa-facebook-f mx-4 fa-2x"> </i>
+                </a>
+                <!--Instagram-->
+                <a class="text-white">
+                    <i class="fab fa-instagram mx-4 fa-2x"> </i>
+                </a>
+                <!--Pinterest-->
+                <a class="text-white">
+                    <i class="fab fa-whatsapp mx-4 fa-2x"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Footer Elements -->
+        <!-- Copyright -->
+        <div class="text-center text-success py-3">© 2020 Copyright:
+            <a class="text-white" href="https://nlugopino.github.io/"> Nelson Andres Lugo Pino</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/paginador.js"></script>
+    <script>
+        $(document).on('keyup', '#cantidad', function () {
+            var _this = $(this);
+            var min = parseInt(_this.attr('min')) || 1; // if min attribute is not defined, 1 is default
+            var max = parseInt(_this.attr('max')) || 100; // if max attribute is not defined, 100 is default
+            var val = parseInt(_this.val()) || (min - 1); // if input char is not a number the value will be (min - 1) so first condition will be true
+            if (val < min)
+                _this.val(min);
+            if (val > max)
+                _this.val(max);
+        });
+        $(document).ready(function () {
+            $("#filtro").on("keydown", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tableUserList #filtrotr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+        $(document).ready(function () {
+            $("#filtroclien").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tablacliente #filtrotrclien").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+        $(document).ready(function () {
+            $("#tableUserList").paginationTdA({
+                elemPerPage: 30
+            });
+        });
+    </script>
+</body>
+
+</html>

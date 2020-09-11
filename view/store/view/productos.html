@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/theme-bootstrap-4/bootstrap-4.min.css">
+    <title>Productos</title>
+</head>
+
+<body style="background-image: url(../img/fondo.png);">
+    <!-- Contenedor para vue.js -->
+    <div id="app">
+        <!-- Barra de navegacion -->
+        <div class="sticky-top">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../img/logo.png" class="img-fluid" width="280px">
+                </a>
+                <a role="button" class="btn mx-0 px-0" data-toggle="modal" data-target="#modalcarro">
+                    <span class="badge p-1 text-primary font-weight-bold bg-light">{{items}}</span>
+                    <i class="fas fa-shopping-basket fa-2x text-white"></i>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse ml-md-5" id="navbarColor02">
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+                    <!-- Links redes sociales -->
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link font-weight-bold" href="productos.html">Productos <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="servicios.html">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold" href="../../../index.html"
+                                title="Volver a la presentación">
+                                <i class="fas fa-home fa-lg"></i>
+                            </a>
+                        </li>
+                        <div class="d-flex justify-content-center ml-5">
+                            <!-- Facebook -->
+                            <a class="nav-link" href="#" title="Facebook">
+                                <i class="fab fa-facebook fa-lg mr-3 text-white"></i>
+                            </a>
+                            <!--Instagram-->
+                            <a class="nav-link" href="#" title="Instagram">
+                                <i class="fab fa-instagram fa-lg mr-3 text-white"></i>
+                            </a>
+                            <!--WhatsApp-->
+                            <a class="nav-link" href="#" title="WhatApp">
+                                <i class="fab fa-whatsapp fa-lg mr-3 text-white"></i>
+                            </a>
+                        </div>
+                    </ul>
+                    <!-- Fin Links redes sociales -->
+                </div>
+            </nav>
+        </div>
+        <!-- Fin Barra de navegacion -->
+
+        <!-- Cuerpo de la pagina -->
+        <div class="container shadow bg-white px-0 my-3">
+            <div class="text-center"><img src="../img/publi/desc04.jpg" class="img-fluid"></div>
+
+            <!-- Filtros -->
+            <div class="sticky-top-filtro px-3 py-2 bg-white w-100 border">
+                <div class="text-center">
+                    <button class="btn btn-primary" data-toggle="collapse" href="#collapseFilter" role="button">Filtros
+                        <i class="fas fa-filter"></i></button>
+                </div>
+                <div class="collapse mt-2" id="collapseFilter">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-center">Tipo</h6>
+                            <div class="row row-cols-2">
+                                <div class="col text-right">
+                                    <div class="form-group form-check">
+                                        <input type="radio" class="form-check-input" id="checkdog" name="filtro"
+                                            @change="filtrotipo('Perro')">
+                                        <label class="form-check-label" for="checkdog"><i class="fas fa-paw"></i>
+                                            Perro</label>
+                                    </div>
+                                </div>
+                                <div class="col text-left">
+                                    <div class="form-group form-check">
+                                        <input type="radio" class="form-check-input" id="checkcat" name="filtro"
+                                            @change="filtrotipo('Gato')">
+                                        <label class="form-check-label" for="checkcat"><i class="fas fa-cat"></i>
+                                            Gato</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-center">Categorias</h6>
+                            <div class="row row-cols-2">
+                                <div class="col text-right">
+                                    <div class="form-group form-check">
+                                        <input type="radio" class="form-check-input" id="checkAlimentos" name="filtro"
+                                            @change="filtrocategoria('Alimento')">
+                                        <label class="form-check-label" for="checkAlimentos"><i class="fas fa-bone"></i>
+                                            Alimentos</label>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <input type="radio" class="form-check-input" id="checkJuguetes" name="filtro"
+                                            @change="filtrocategoria('Juguetes')">
+                                        <label class="form-check-label" for="checkJuguetes"><i
+                                                class="fas fa-basketball-ball"></i>
+                                            Juguetes</label>
+                                    </div>
+                                </div>
+                                <div class="col text-left">
+                                    <div class="form-group form-check">
+                                        <input type="radio" class="form-check-input" id="checkBienestar" name="filtro"
+                                            @change="filtrocategoria('Bienestar')">
+                                        <label class="form-check-label" for="checkBienestar"><i
+                                                class="far fa-grin-hearts"></i>
+                                            Bienestar</label>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <input type="radio" class="form-check-input" id="checkPaseo" name="filtro"
+                                            @change="filtrocategoria('Paseo')">
+                                        <label class="form-check-label" for="checkPaseo"><i class="fas fa-blind"></i>
+                                            Paseo</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-danger" @click="cleanfiltro">Limpiar <i
+                                class="fas fa-backspace"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Filtros -->
+
+            <!-- Productos -->
+            <div class="row row-cols-sm-2 row-cols-lg-4 mx-2 p-0">
+                <div class="col mb-3 mt-3" v-for="(prod,index) in productos">
+                    <div class="card" style="height: 23rem;">
+                        <div class="card-header text-center pt-2 pb-1 bg-white border-0">
+                            <h6 class="card-title">{{prod.nombre}}</h6>
+                        </div>
+                        <div class="card-body text-center p-0 mb-3">
+                            <img src="../img/15des.png" class="off" v-if="prod.preciold>0">
+                            <a :href="prod.img"><img :src="prod.img" class="card-img-top img-fluid w-75"></a>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 d-flex justify-content-center">
+                                    <h5 class="card-title m-0">${{prod.precio}} </h5>
+                                    <small class="text-muted small ml-1"
+                                        v-if="prod.preciold>0"><del>${{prod.preciold}}</del></small>
+                                </div>
+                                <div class="col-md-6 col-sm-12 text-center">
+                                    <a type="button" class="text-primary" data-toggle="modal"
+                                        data-target="#modalproducto" @click="viewproducto(index)" title="Ver producto">
+                                        <i class="far fa-eye"></i>
+                                    </a>
+                                    <a type="button" class="text-success" title="Agregar al carrito"
+                                        @click="agregarcarro(index)">
+                                        <i class="fas fa-shopping-basket mx-2"></i>
+                                    </a>
+                                    <a type="button" class="text-danger" title="Agregar a favorito"
+                                        @click="favorito(index)">
+                                        <i :id="'heart'+index" class="far fa-heart"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Productos -->
+
+            <!-- Paginador -->
+            <div class="d-flex justify-content-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link bg-primary text-white" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link bg-primary text-white" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link bg-primary text-white" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link bg-primary text-white" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link bg-primary text-white" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Fin Paginador -->
+
+            <!-- Modal Productos-->
+            <div class="modal fade" id="modalproducto" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-light">
+                            <h5 class="modal-title">{{verproducto.nombre}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center p-0 mb-3">
+                                <img src="../img/15des.png" class="off" v-if="verproducto.preciold>0">
+                                <a :href="verproducto.img"><img :src="verproducto.img"
+                                        class="card-img-top img-fluid w-75">
+                                </a>
+                                <div>
+                                    <p class="lead small">{{verproducto.detalle}}</p>
+                                </div>
+                                <div>
+                                    <h5 class="card-title text-center"><small
+                                            v-if="verproducto.preciold>0">Ahora</small>
+                                        ${{verproducto.precio}}
+                                        <small class="text-muted" v-if="verproducto.preciold>0"><del>Antes
+                                                ${{verproducto.preciold}}</del></small>
+                                    </h5>
+                                </div>
+                                <div>
+                                    <h6 class="lead">Disponibles {{verproducto.stock}} Uns</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Atrás</button>
+                            <button type="button" class="btn btn-success"
+                                @click="agregarcarro(verproducto.index)">Agregar
+                                <i class="fas fa-shopping-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Modal Productos-->
+
+            <!-- Modal Carro de compras-->
+            <div class="modal fade" id="modalcarro" tabindex="-1" role="dialog" aria-labelledby="modalcarro"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-light">
+                            <h5 class="modal-title" id="modalcarro">Carro de compras <i
+                                    class="fas fa-shopping-basket text-success"></i></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row row-cols-3 mx-1">
+                                <div class="col-4 border bg-success">
+                                    <h6 class="text-center text-white small">Img</h6>
+                                </div>
+                                <div class="col-6 border bg-success">
+                                    <h6 class="text-center text-white small">Nombre</h6>
+                                </div>
+                                <div class="col-2 border bg-success">
+                                    <h6 class="text-center text-white small">Quitar</h6>
+                                </div>
+                            </div>
+                            <div class="row row-cols-3 mx-1" v-for="(car,index) in carrodecompras">
+                                <div class="col-4 border text-center">
+                                    <a :href="car.img"><img :src="car.img" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6 border d-flex align-items-center justify-content-center">
+                                    <h6 class="small">{{car.nombre}} Cantidad {{car.cantidad}}</h6>
+                                </div>
+                                <div class="col-2 border d-flex align-items-center justify-content-center">
+                                    <button class="btn btn-danger btn-sm" title="Quitar del carro"
+                                    @click="quitardelcarro(index)">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mt-2 text-right mr-2">
+                                <h6>Subtotal ${{subtotalcarro}}</h6>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Seguir mirando</button>
+                            <a role="button" href="compras.html" class="btn btn-success">Ir al carrito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Carro de compras-->
+        </div>
+        <!-- Fin Cuerpo de la pagina -->
+
+        <!-- Footer -->
+        <footer style="background-color: #f8f9fa;">
+            <!-- Footer Links -->
+            <div class="container-fluid">
+                <!-- Grid row-->
+                <div class="row text-center d-flex justify-content-center pt-4 mb-3" style="background-color: #02b875;">
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="../index.html" class="text-white">Inicio</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="productos.html" class="text-white">Productos</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="servicios.html" class="text-white">Servicios</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 mb-3">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="contacto.html" class="text-white">Contacto</a>
+                        </h6>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row-->
+
+                <!-- Grid row-->
+                <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+                    <!-- Grid column -->
+                    <div class="col-md-8 col-12 mt-3">
+                        <p class="text-center lead">¿Cómo comprar?</p>
+                        <p class="lead text-justify">
+                            Comprar es muy sencillo, debes agregar al carrito de compra el producto que deseas, luego
+                            elegir
+                            el
+                            método de pago (puedes elegir entre tarjeta de débito, crédito, consignación bancaria o pago
+                            vía
+                            Efecty
+                            o Baloto) y ¡listo!, tu pedido será entregado de 3 y 7 días a nivel nacional.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row-->
+
+                <hr class="rgba-white-light mb-4" style="margin: 0 15%;">
+
+                <!-- Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-12">
+                        <div class="mb-5 d-flex justify-content-center">
+                            <!-- Facebook -->
+                            <a class="fb-ic" href="#" title="Facebook">
+                                <i class="fab fa-facebook fa-2x mr-4 text-success"></i>
+                            </a>
+                            <!--Instagram-->
+                            <a class="ins-ic" href="#" title="Instagram">
+                                <i class="fab fa-instagram fa-2x mr-4 text-success"></i>
+                            </a>
+                            <!--WhatsApp-->
+                            <a class="wha-ic" href="#" title="WhatApp">
+                                <i class="fab fa-whatsapp fa-2x mr-4 text-success"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row-->
+            </div>
+            <!-- Footer Links -->
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3" style="background-color: #E3E3E3;">© 2020 Copyright:
+                <a href="https://nlugopino.github.io/"> Nelson Andres Lugo Pino</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </div>
+    <!-- Fin Contenedor para vue.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+        </script>
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+
+        let Checked = null;
+        //The class name can vary
+        for (let CheckBox of document.getElementsByClassName('only-one')) {
+            CheckBox.onclick = function () {
+                if (Checked != null) {
+                    Checked.checked = false;
+                    Checked = CheckBox;
+                }
+                Checked = CheckBox;
+            }
+        }
+    </script>
+</body>
+
+</html>
